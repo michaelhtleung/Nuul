@@ -17,8 +17,8 @@ class Home extends React.Component {
 		return <div className="page">
 			<h1>Home</h1>
 			<div className="tile">
-				<Streak streakType={"Current"} time={time.current}/>
-				<Streak streakType={"Best"} time={time.best}/>
+				<Streak streakType={"Current"} time={time.current} emoji="fire"/>
+				<Streak streakType={"Best"} time={time.best} emoji="open-mouth"/>
 			</div>
 		</div>
 	}
