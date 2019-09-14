@@ -9,7 +9,6 @@ class Streak extends React.Component {
 			<h3>{this.props.time.days} days
 				<i className={emojiClass + this.props.emoji} title={":" + this.props.emoji + ":"}></i>
 			</h3>
-			<br/>
 		</div>
 	}
 }

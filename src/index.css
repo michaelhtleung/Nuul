@@ -15,6 +15,12 @@ h1 {
     margin: 10px;
 }
 
+.tile {
+    margin: 10px;
+    border: 1px black solid;
+    border-radius: 15px;
+}
+
 .streak > h2 {
     display: flex;
     justify-content: center;
