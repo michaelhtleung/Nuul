@@ -1,5 +1,6 @@
-import React from 'react'
-import Streak from './streak'
+import React from 'react';
+import Streak from './streak';
+import NavTile from './nav-tile';
 
 var time = {
 	current:{
@@ -21,6 +22,8 @@ class Home extends React.Component {
 				<br/>
 				<Streak streakType={"Best"} time={time.best} emoji="open-mouth"/>
 			</div>
+			<NavTile nextPage="Data Analysis" url="/data"/>
+			<NavTile nextPage="Motivation & Resources" url="/motivation"/>
 		</div>
 	}
 }
