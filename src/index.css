@@ -18,11 +18,12 @@ h1 {
 
 .footer {
     display: flex;
+    position: absolute;
     justify-content: space-around;
     bottom: 0;
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: #888;
+    height: 45px;
 }
 
 .iconCircle {
@@ -31,6 +32,7 @@ h1 {
     justify-content: center;
     height: 35px;
     width: 35px;
+    margin-top: 5px;
     background-color: #bbb;
     border-radius: 50%;
 }

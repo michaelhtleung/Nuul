@@ -8,11 +8,11 @@ import account from '../img/account.svg';
 
 class Footer extends React.Component {
 	render() {
-		return <footer className="footer">
+		return <div className="footer">
 			<FooterIcon filePath={home}/>
 			<FooterIcon filePath={achievements}/>
 			<FooterIcon filePath={account}/>
-		</footer>
+		</div>
 	}
 }
 export default Footer
