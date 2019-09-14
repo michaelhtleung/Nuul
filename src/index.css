@@ -24,3 +24,14 @@ h1 {
     margin-left: auto;
     margin-right: auto;
 }
+
+.iconCircle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    background-color: #bbb;
+    border-radius: 50%;
+}
+
