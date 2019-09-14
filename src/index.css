@@ -19,6 +19,27 @@ h1 {
     margin: 10px;
     border: 1px black solid;
     border-radius: 15px;
+    text-decoration: none;
+}
+
+.nav-tile-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+.nav-tile-wrapper > .tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 80%;
+}
+
+.tile-text {
+    width: 100px;
+    color: black;
 }
 
 .streak > h2 {

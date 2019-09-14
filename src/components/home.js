@@ -22,8 +22,10 @@ class Home extends React.Component {
 				<br/>
 				<Streak streakType={"Best"} time={time.best} emoji="open-mouth"/>
 			</div>
-			<NavTile nextPage="Data Analysis" url="/data"/>
-			<NavTile nextPage="Motivation & Resources" url="/motivation"/>
+			<div className="nav-tile-wrapper">
+				<NavTile nextPage="Data Analysis" url="/data"/>
+				<NavTile nextPage="Motivation & Resources" url="/motivation"/>
+			</div>
 		</div>
 	}
 }

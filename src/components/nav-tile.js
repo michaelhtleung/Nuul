@@ -4,11 +4,11 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
 class NavTile extends React.Component {
 	render() {
-		return <div className="tile">
-			<Link to={this.props.url}>
+		return <Link className="tile" to={this.props.url}>
+			<div className="tile-text">
 				{this.props.nextPage}
-			</Link>
-		</div>
+			</div>
+		</Link>
 	}
 }
 export default NavTile
