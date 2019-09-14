@@ -15,7 +15,12 @@ h1 {
     margin: 10px;
 }
 
-.time {
+.streak > h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.streak > h3 {
     display: flex;
     justify-content: center;
 }
