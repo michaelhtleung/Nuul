@@ -1,23 +1,23 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
 import './index.css';
-import App from './App';
 
-import Users from './components/users';
-import Contact from './components/contact';
-import Footer from './components/footer';
+import App from './App';
+import Home from './components/home';
+import DataAnalysis from './components/data-analysis';
+import Motivation from './components/motivation';
+
 
 const routing = (
 	<Router>
 		<div>
+			<Route path="/home" component={Home} />
+			<Route path="/data" component={DataAnalysis} />
+			<Route path="/motivation" component={Motivation} />
 			<Route path="/" component={App} />
-			<Route path="/users" component={Users} />
-			<Route path="/contact" component={Contact} />
 		</div>
-	<Footer/>
 	</Router>
 )
 ReactDOM.render(routing, document.getElementById('root'))

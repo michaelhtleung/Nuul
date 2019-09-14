@@ -7,13 +7,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+h1 {
+    margin: 0px;
 }
 
-h1 {
-    color: red;
+.page {
+    margin: 10px;
 }
 
 .footer {
