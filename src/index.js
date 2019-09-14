@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
 import './index.css';
+import "./twemoji-awesome.css"
 
 import App from './App';
 import Home from './components/home';
