@@ -1,6 +1,6 @@
 import React from 'react';
 import Streak from './streak';
-import NavTile from './nav-tile';
+import {VictoryChart, VictoryBar, VictoryAxis} from 'victory';
 
 var time = {
 	current:{
@@ -11,7 +11,25 @@ var time = {
 		months: 5,
 		days: 14
 	}
-}
+};
+
+var weekday = ["Su", "M", "Tu", "W", "Th", "F", "Sa"];
+
+var aggregateByDays = [
+	{frequency: 10},
+	{frequency: 15},
+	{frequency: 20},
+	{frequency: 30},
+	{frequency: 3},
+	{frequency: 50},
+	{frequency: 8},
+];
+
+aggregateByDays.forEach( (dayElement, dayIndex) => {
+	dayElement.day = weekday[dayIndex];
+});
+
+console.log(aggregateByDays);
 
 class Home extends React.Component {
 	render() {
@@ -22,9 +40,8 @@ class Home extends React.Component {
 				<br/>
 				<Streak streakType={"Best"} time={time.best} emoji="open-mouth"/>
 			</div>
-			<div className="nav-tile-wrapper">
-				<NavTile nextPage="Data Analysis" url="/data"/>
-				<NavTile nextPage="Motivation & Resources" url="/motivation"/>
+			<div className="tile">
+				<VictoryBar data={aggregateByDays} x={"day"} y={"frequency"}/>
 			</div>
 		</div>
 	}

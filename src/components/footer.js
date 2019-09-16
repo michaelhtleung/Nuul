@@ -11,7 +11,7 @@ import account from '../img/account.svg';
 class Footer extends React.Component {
 	render() {
 		return <div className="footer">
-			<Link to="/home">
+			<Link to="/">
 				<FooterIcon filePath={home}/>
 			</Link>
 			<FooterIcon filePath={achievements}/>

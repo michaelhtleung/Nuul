@@ -14,11 +14,11 @@ import Motivation from './components/motivation';
 const routing = (
 	<Router>
 		<div>
-			<Route path="/home" component={Home} />
 			<Route path="/data" component={DataAnalysis} />
 			<Route path="/motivation" component={Motivation} />
-			<Route path="/" component={App} />
+			<Route exact path="/" component={Home} />
 		</div>
+		<App/>
 	</Router>
 )
 ReactDOM.render(routing, document.getElementById('root'))
