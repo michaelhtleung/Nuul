@@ -13,6 +13,7 @@ p {
 
 h1 {
     margin: 0px;
+    text-align: center;
 }
 
 .page {
@@ -24,6 +25,10 @@ h1 {
     border: 1px black solid;
     border-radius: 15px;
     text-decoration: none;
+}
+
+.chartTitle {
+    margin-bottom: -20px;
 }
 
 .nav-tile-wrapper {
