@@ -1,5 +1,6 @@
 import React from 'react';
 import Streak from './streak';
+import TileTitle from './tile-title';
 import {VictoryChart, VictoryBar, VictoryAxis, VictoryTheme, VictoryLabel} from 'victory';
 
 var time = {
@@ -34,13 +35,19 @@ class Home extends React.Component {
 		return <div className="page">
 			<h1>Nuul</h1>
 			<div className="tile">
-				<h2>Current Streak</h2>
+				<Title words="Current Streak"/>
+				<TileTitle word="Current"/>
+				<TileTitle word="Streak"/>
+				<div className="tile-title">
+
+				</div>
 				<Streak time={time.current} emoji="fire"/>
-				<h2>Best Streak</h2>
+				<TileTitle word="Best"/>
+				<TileTitle word="Streak"/>
 				<Streak time={time.best} emoji="open-mouth"/>
 			</div>
 			<div className="tile">
-				<h2 className="chartTitle">Daily Frequency</h2>
+				<h2 className="chartTitle">{'Daily Frequency'.toUpperCase()}</h2>
 				<VictoryChart
 					domainPadding={20}
 					theme={VictoryTheme.material}
