@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    background: #F8F8FA;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -43,6 +44,7 @@ h1 {
     border: 1px black solid;
     border-radius: 15px;
     text-decoration: none;
+    background: #FFFFFF;
 }
 
 .nav-tile-wrapper {
