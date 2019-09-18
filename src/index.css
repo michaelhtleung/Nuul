@@ -45,6 +45,13 @@ svg {
     margin: 10px;
 }
 
+.page-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80vh;
+}
+
 .tile {
     margin: 10px;
     border-radius: 10px;

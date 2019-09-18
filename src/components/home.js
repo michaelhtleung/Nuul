@@ -34,41 +34,43 @@ class Home extends React.Component {
 	render() {
 		return <div className="page">
 			<h1>{'Nuul'.toUpperCase()}</h1>
-			<div className="tile">
-				<div className="tile-title">
-					<TileTitle word="Current"/>
+			<div className="page-content">
+				<div className="tile">
+					<div className="tile-title">
+						<TileTitle word="Current"/>
+						<TileTitle word="Streak"/>
+					</div>
+					<Streak time={time.current} emoji="fire"/>
+					<TileTitle word="Best"/>
 					<TileTitle word="Streak"/>
+					<Streak time={time.best} emoji="open-mouth"/>
+					<br/>
 				</div>
-				<Streak time={time.current} emoji="fire"/>
-				<TileTitle word="Best"/>
-				<TileTitle word="Streak"/>
-				<Streak time={time.best} emoji="open-mouth"/>
-				<br/>
-			</div>
-			<div className="tile">
-				<div className="tile-title">
-					<TileTitle word="Daily"/>
-					<TileTitle word="Frequency"/>
-				</div>
-				<VictoryChart
-					domainPadding={20}
-					height={300}
-				>
-					<VictoryAxis
-						tickValues={weekday}
-						label={"Day of the Week"}
-					/>
-					<VictoryAxis
-						dependentAxis
-						tickFormat={x => x}
-						label={"Times smoked"}
-					/>
-					<VictoryStack
-						colorScale={["#967BB6"]}
+				<div className="tile">
+					<div className="tile-title">
+						<TileTitle word="Daily"/>
+						<TileTitle word="Frequency"/>
+					</div>
+					<VictoryChart
+						domainPadding={20}
+						height={300}
 					>
-						<VictoryBar data={aggregateByDays} x={"day"} y={"frequency"}/>
-					</VictoryStack>
-				</VictoryChart>
+						<VictoryAxis
+							tickValues={weekday}
+							label={"Day of the Week"}
+						/>
+						<VictoryAxis
+							dependentAxis
+							tickFormat={x => x}
+							label={"Times smoked"}
+						/>
+						<VictoryStack
+							colorScale={["#967BB6"]}
+						>
+							<VictoryBar data={aggregateByDays} x={"day"} y={"frequency"}/>
+						</VictoryStack>
+					</VictoryChart>
+				</div>
 			</div>
 		</div>
 	}
