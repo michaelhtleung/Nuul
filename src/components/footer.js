@@ -14,8 +14,12 @@ class Footer extends React.Component {
 			<Link to="/">
 				<FooterIcon filePath={home}/>
 			</Link>
-			<FooterIcon filePath={achievements}/>
-			<FooterIcon filePath={account}/>
+			<Link to="/achievements">
+				<FooterIcon filePath={achievements}/>
+			</Link>
+			<Link to="/account">
+				<FooterIcon filePath={account}/>
+			</Link>
 		</div>
 	}
 }

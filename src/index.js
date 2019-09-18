@@ -6,17 +6,17 @@ import './index.css';
 import "./twemoji-awesome.css"
 
 import App from './App';
-import Home from './components/home';
-import DataAnalysis from './components/data-analysis';
-import Motivation from './components/motivation';
+import HomePage from './components/home-page';
+import AchievementsPage from './components/achievements-page';
+import Account from './components/account-page';
 
 
 const routing = (
 	<Router>
 		<div>
-			<Route path="/data" component={DataAnalysis} />
-			<Route path="/motivation" component={Motivation} />
-			<Route exact path="/" component={Home} />
+			<Route exact path="/account" component={Account} />
+			<Route exact path="/achievements" component={AchievementsPage} />
+			<Route exact path="/" component={HomePage} />
 		</div>
 		<App/>
 	</Router>

@@ -30,7 +30,7 @@ aggregateByDays.forEach( (dayElement, dayIndex) => {
 	dayElement.day = weekday[dayIndex];
 });
 
-class Home extends React.Component {
+class HomePage extends React.Component {
 	render() {
 		return <div className="page">
 			<h1>{'Nuul'.toUpperCase()}</h1>
@@ -75,4 +75,4 @@ class Home extends React.Component {
 		</div>
 	}
 }
-export default Home
+export default HomePage
