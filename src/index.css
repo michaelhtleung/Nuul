@@ -18,6 +18,11 @@ h1 {
     font-family: 'Monsterrat', sans-serif;
 }
 
+svg {
+    position: relative;
+    top: -20px;
+}
+
 .tile-title-word {
     margin-top: 13px;
     margin-left: 20px;

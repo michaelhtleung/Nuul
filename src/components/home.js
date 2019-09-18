@@ -1,7 +1,7 @@
 import React from 'react';
 import Streak from './streak';
 import TileTitle from './tile-title';
-import {VictoryChart, VictoryBar, VictoryAxis, VictoryTheme, VictoryLabel} from 'victory';
+import {VictoryChart, VictoryBar, VictoryAxis, VictoryTheme, VictoryStack} from 'victory';
 
 var time = {
 	current:{
@@ -52,7 +52,6 @@ class Home extends React.Component {
 				</div>
 				<VictoryChart
 					domainPadding={20}
-					theme={VictoryTheme.material}
 					height={300}
 				>
 					<VictoryAxis
@@ -64,7 +63,11 @@ class Home extends React.Component {
 						tickFormat={x => x}
 						label={"Times smoked"}
 					/>
-					<VictoryBar data={aggregateByDays} x={"day"} y={"frequency"}/>
+					<VictoryStack
+						colorScale={["#967BB6"]}
+					>
+						<VictoryBar data={aggregateByDays} x={"day"} y={"frequency"}/>
+					</VictoryStack>
 				</VictoryChart>
 			</div>
 		</div>
