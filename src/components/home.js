@@ -33,7 +33,7 @@ aggregateByDays.forEach( (dayElement, dayIndex) => {
 class Home extends React.Component {
 	render() {
 		return <div className="page">
-			<h1>Nuul</h1>
+			<h1>{'Nuul'.toUpperCase()}</h1>
 			<div className="tile">
 				<div className="tile-title">
 					<TileTitle word="Current"/>
