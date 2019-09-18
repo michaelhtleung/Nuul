@@ -76,6 +76,12 @@ h1 {
 .streak > h3 {
     display: flex;
     justify-content: center;
+    font-family: 'Monsterrat', sans-serif;
+    font-size: 24px;
+    font-weight: 100;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    color: #5B4B6F;
 }
 
 .footer {

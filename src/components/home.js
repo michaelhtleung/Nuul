@@ -43,6 +43,7 @@ class Home extends React.Component {
 				<TileTitle word="Best"/>
 				<TileTitle word="Streak"/>
 				<Streak time={time.best} emoji="open-mouth"/>
+				<br/>
 			</div>
 			<div className="tile">
 				<div className="tile-title">
