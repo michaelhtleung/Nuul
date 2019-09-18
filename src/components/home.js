@@ -35,11 +35,9 @@ class Home extends React.Component {
 		return <div className="page">
 			<h1>Nuul</h1>
 			<div className="tile">
-				<Title words="Current Streak"/>
-				<TileTitle word="Current"/>
-				<TileTitle word="Streak"/>
 				<div className="tile-title">
-
+					<TileTitle word="Current"/>
+					<TileTitle word="Streak"/>
 				</div>
 				<Streak time={time.current} emoji="fire"/>
 				<TileTitle word="Best"/>
@@ -47,7 +45,10 @@ class Home extends React.Component {
 				<Streak time={time.best} emoji="open-mouth"/>
 			</div>
 			<div className="tile">
-				<h2 className="chartTitle">{'Daily Frequency'.toUpperCase()}</h2>
+				<div className="tile-title">
+					<TileTitle word="Daily"/>
+					<TileTitle word="Frequency"/>
+				</div>
 				<VictoryChart
 					domainPadding={20}
 					theme={VictoryTheme.material}

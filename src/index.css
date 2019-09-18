@@ -11,6 +11,14 @@ p {
 h1 {
     margin: 0px;
     text-align: center;
+    height: 84px;
+    font-size: 75px;
+    font-family: 'Monsterrat', sans-serif;
+}
+
+.tile-title-word {
+    margin-top: 13px;
+    margin-left: 20px;
 }
 
 .tile-title-word {
@@ -35,10 +43,6 @@ h1 {
     border: 1px black solid;
     border-radius: 15px;
     text-decoration: none;
-}
-
-.chartTitle {
-    margin-bottom: -20px;
 }
 
 .nav-tile-wrapper {
