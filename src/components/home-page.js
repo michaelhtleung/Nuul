@@ -46,7 +46,7 @@ class HomePage extends React.Component {
 					<Streak time={time.best} emoji="open-mouth"/>
 					<br/>
 				</div>
-				<div className="tile">
+				<div className="tile bottom-tile">
 					<div className="tile-title">
 						<TileTitle word="Daily"/>
 						<TileTitle word="Frequency"/>

@@ -80,6 +80,10 @@ svg {
     color: black;
 }
 
+.bottom-tile {
+    margin-bottom: 30px;
+}
+
 .streak > h2 {
     display: flex;
     justify-content: center;
