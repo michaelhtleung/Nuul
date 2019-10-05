@@ -12,6 +12,7 @@ mongoose.connect('mongodb://localhost/hackthenorth2019', (err) => {
 	console.log("Connected to database")
 });
 
+/*routes for viewing data from the database*/
 app.get('/view/graphData/:userid', function (req, res) {
 	res.send('graph');
 });
@@ -27,7 +28,12 @@ app.get('/view/sensor/:serial', function (req, res) {
 	});
 });
 
+/*routes for adding to the database*/
 app.post('/add/sensor', function (req, res) {
+	if (!req.query.serialNumber) res.status(400).send("no serial number specified");
+	if (!req.query.brand) res.status(400).send("no brand specified");
+	if (!req.query.userID) res.status(400).send("no user ID specified");
+
 	dbFunctions.addSensor({
 		serialNumber: req.query.serialNumber,
 		brand: req.query.brand,
@@ -39,20 +45,29 @@ app.post('/add/sensor', function (req, res) {
 });
 
 app.post('/add/session', function (req, res) {
-	let startTime = {
-		year: req.query.startYear,
-		month: req.query.startMonth,
-		day: req.query.startDay,
-		hour: req.query.startHour,
-		minute: req.query.startMinute
+	/*client time stamp format: YYYY-MM-DD-HH-MM-SS*/
+	let timestampString;
+	let startTime;
+	let endTime;
+
+	timestampString = req.query.startTime.split('-');
+	startTime = {
+		year: timestampString[0],
+		month: Number(timestampString[1])-1, // re-index from 0 to 11 for moment.js
+		day: timestampString[2],
+		hour: timestampString[3],
+		minute: timestampString[4],
+		second: timestampString[5],
 	};
 
-	let endTime = {
-		year: req.query.endYear,
-		month: req.query.endMonth,
-		day: req.query.endDay,
-		hour: req.query.endHour,
-		minute: req.query.endMinute
+	timestampString = req.query.endTime.split('-');
+	endTime = {
+		year: timestampString[0],
+		month: Number(timestampString[1])-1, // re-index from 0 to 11 for moment.js
+		day: timestampString[2],
+		hour: timestampString[3],
+		minute: timestampString[4],
+		second: timestampString[5],
 	};
 
 	dbFunctions.addSession({
