@@ -20,6 +20,7 @@
   "homepage": "https://github.com/michaelhtleung/hackthenorth2019-client-webapp#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "moment": "^2.24.0",
     "mongodb": "^3.3.2",
     "mongoose": "^5.7.3"
   }

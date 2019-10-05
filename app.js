@@ -33,12 +33,36 @@ app.post('/add/sensor', function (req, res) {
 		brand: req.query.brand,
 		userID: req.query.userID
 	}, (error) => {
-		if (error) throw error;
+		if (error) res.status(500).send(error);
 		res.send("successfully added new sensor");
 	})
 });
 
 app.post('/add/session', function (req, res) {
+	let startTime = {
+		year: req.query.startYear,
+		month: req.query.startMonth,
+		day: req.query.startDay,
+		hour: req.query.startHour,
+		minute: req.query.startMinute
+	};
+
+	let endTime = {
+		year: req.query.endYear,
+		month: req.query.endMonth,
+		day: req.query.endDay,
+		hour: req.query.endHour,
+		minute: req.query.endMinute
+	};
+
+	dbFunctions.addSession({
+		startTime: startTime,
+		endTime: endTime,
+		serialNumber: req.query.serialNumber
+	}, (error) => {
+		if (error) res.status(500).send(error);
+		res.send("successfully added new session");
+	});
 });
 
 app.post('/addUser', function (req, res) {
