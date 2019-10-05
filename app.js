@@ -22,8 +22,8 @@ app.get('/view/achievementsData/:userid', function (req, res) {
 
 app.get('/view/sensor/:serial', function (req, res) {
 	dbFunctions.getSensor(req.params.serial, (error, document) => {
-		if (document) res.send(document);
-		res.status(404).send("requested sensor does not exist");
+		if (error) res.status(404).send("requested sensor does not exist");
+		res.send(document);
 	});
 });
 
