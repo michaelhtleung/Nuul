@@ -5,7 +5,7 @@ const sensorSchema = new mongoose.Schema({
 	_id: ObjectId,
 	serialNumber: Number,
 	brand: String,
-	userID: Number,
+	userID: String,
 });
 
 const Sensor = mongoose.model('Sensor', sensorSchema);
