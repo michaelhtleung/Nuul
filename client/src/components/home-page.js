@@ -22,6 +22,14 @@ const weekday = ["Su", "M", "Tu", "W", "Th", "F", "Sa"];
 class HomePage extends React.Component {
 	constructor(props) {
 		super(props);
+		// axios.get('http://localhost:5000/view/achievementsData/michael')
+		axios.get('http://localhost:5000/view/graphData/michael')
+			.then(response => {
+				console.log(response);
+			})
+			.catch( error => {
+				console.log(error);
+			});
 		this.state = {
 			aggregateByDays: [
 				{frequency: 10},
