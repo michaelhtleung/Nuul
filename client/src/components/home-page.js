@@ -1,7 +1,10 @@
 import React from 'react';
+import axios from 'axios';
+import {VictoryChart, VictoryBar, VictoryAxis, VictoryTheme, VictoryStack} from 'victory';
+
+/*custom components*/
 import Streak from './streak';
 import TileTitle from './tile-title';
-import {VictoryChart, VictoryBar, VictoryAxis, VictoryTheme, VictoryStack} from 'victory';
 
 var time = {
 	current:{
@@ -14,23 +17,27 @@ var time = {
 	}
 };
 
-var weekday = ["Su", "M", "Tu", "W", "Th", "F", "Sa"];
-
-var aggregateByDays = [
-	{frequency: 10},
-	{frequency: 20},
-	{frequency: 15},
-	{frequency: 30},
-	{frequency: 3},
-	{frequency: 50},
-	{frequency: 8},
-];
-
-aggregateByDays.forEach( (dayElement, dayIndex) => {
-	dayElement.day = weekday[dayIndex];
-});
+const weekday = ["Su", "M", "Tu", "W", "Th", "F", "Sa"];
 
 class HomePage extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			aggregateByDays: [
+				{frequency: 10},
+				{frequency: 20},
+				{frequency: 15},
+				{frequency: 30},
+				{frequency: 3},
+				{frequency: 50},
+				{frequency: 8}
+			]
+		};
+		this.state.aggregateByDays.forEach( (dayElement, dayIndex) => {
+			dayElement.day = weekday[dayIndex];
+		});
+};
+
 	render() {
 		return <div className="page">
 			<h1>{'Nuul'.toUpperCase()}</h1>
@@ -62,12 +69,12 @@ class HomePage extends React.Component {
 							label={"Times smoked"}
 						/>
 						<VictoryStack colorScale={["#967BB6"]} >
-						<VictoryBar data={aggregateByDays} x={"day"} y={"frequency"}/>
+						<VictoryBar data={this.state.aggregateByDays} x={"day"} y={"frequency"}/>
 						</VictoryStack>
 					</VictoryChart>
 				</div>
 			</div>
 		</div>
-	}
+	};
 }
 export default HomePage
