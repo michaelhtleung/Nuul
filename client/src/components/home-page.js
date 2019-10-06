@@ -51,10 +51,7 @@ class HomePage extends React.Component {
 						<TileTitle word="Daily"/>
 						<TileTitle word="Frequency"/>
 					</div>
-					<VictoryChart
-						domainPadding={20}
-						height={300}
-					>
+					<VictoryChart domainPadding={20} height={300} >
 						<VictoryAxis
 							tickValues={weekday}
 							label={"Day of the Week"}
@@ -64,10 +61,8 @@ class HomePage extends React.Component {
 							tickFormat={x => x}
 							label={"Times smoked"}
 						/>
-						<VictoryStack
-							colorScale={["#967BB6"]}
-						>
-							<VictoryBar data={aggregateByDays} x={"day"} y={"frequency"}/>
+						<VictoryStack colorScale={["#967BB6"]} >
+						<VictoryBar data={aggregateByDays} x={"day"} y={"frequency"}/>
 						</VictoryStack>
 					</VictoryChart>
 				</div>
