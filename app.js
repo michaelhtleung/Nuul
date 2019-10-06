@@ -14,7 +14,13 @@ mongoose.connect('mongodb://localhost/hackthenorth2019', (err) => {
 
 /*routes for viewing data from the database*/
 app.get('/view/graphData/:userid', function (req, res) {
-	res.send('graph');
+	dbFunctions.getGraphData(req.params.userid, (error, graphData) => {
+		if (error) {
+			res.sendStatus(500);
+		} else {
+			res.send(graphData);
+		}
+	});
 });
 
 app.get('/view/achievementsData/:userid', function (req, res) {
@@ -40,7 +46,7 @@ app.post('/add/sensor', function (req, res) {
 		userID: req.query.userID
 	}, (error) => {
 		if (error) res.status(500).send(error);
-		res.send("successfully added new sensor");
+		res.status(201).send("successfully added new sensor");
 	})
 });
 
@@ -76,7 +82,7 @@ app.post('/add/session', function (req, res) {
 		serialNumber: req.query.serialNumber
 	}, (error) => {
 		if (error) res.status(500).send(error);
-		res.send("successfully added new session");
+		res.status(201).send("successfully added new session");
 	});
 });
 
