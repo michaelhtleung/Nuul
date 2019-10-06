@@ -1,7 +1,10 @@
 import React from 'react';
+import axios from 'axios';
+import {VictoryChart, VictoryBar, VictoryAxis, VictoryTheme, VictoryStack} from 'victory';
+
+/*custom components*/
 import Streak from './streak';
 import TileTitle from './tile-title';
-import {VictoryChart, VictoryBar, VictoryAxis, VictoryTheme, VictoryStack} from 'victory';
 
 var time = {
 	current:{
@@ -14,23 +17,49 @@ var time = {
 	}
 };
 
-var weekday = ["Su", "M", "Tu", "W", "Th", "F", "Sa"];
-
-var aggregateByDays = [
-	{frequency: 10},
-	{frequency: 20},
-	{frequency: 15},
-	{frequency: 30},
-	{frequency: 3},
-	{frequency: 50},
-	{frequency: 8},
-];
-
-aggregateByDays.forEach( (dayElement, dayIndex) => {
-	dayElement.day = weekday[dayIndex];
-});
+const weekday = ["Su", "M", "Tu", "W", "Th", "F", "Sa"];
 
 class HomePage extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			aggregationByDays: [ ]
+		};
+		// axios.get('http://localhost:5000/view/graphData/michael')
+		// 	.then(response => {
+		// 		response.data.forEach(value => {
+		// 			this.state.aggregationByDays.push({y: value})
+		// 		});
+		// 		this.state.aggregationByDays.forEach( (dayElement, dayIndex) => {
+		// 			dayElement.x = weekday[dayIndex];
+		// 		});
+		// 		debugger;
+		// 	})
+		// 	.catch( error => {
+		// 		console.log(error);
+		// 	});
+	};
+
+	componentDidMount() {
+		axios.get('http://localhost:5000/view/graphData/michael')
+			.then(response => {
+				let daysArray = [];
+				response.data.forEach(value => {
+					daysArray.push({y: value})
+				});
+				daysArray.forEach( (dayElement, dayIndex) => {
+					dayElement.x = weekday[dayIndex];
+				});
+				this.setState({
+					aggregationByDays: daysArray
+				});
+				debugger;
+			})
+			.catch( error => {
+				console.log(error);
+			});
+	};
+
 	render() {
 		return <div className="page">
 			<h1>{'Nuul'.toUpperCase()}</h1>
@@ -58,16 +87,16 @@ class HomePage extends React.Component {
 						/>
 						<VictoryAxis
 							dependentAxis
-							tickFormat={x => x}
+							tickFormat={y => y}
 							label={"Times smoked"}
 						/>
 						<VictoryStack colorScale={["#967BB6"]} >
-						<VictoryBar data={aggregateByDays} x={"day"} y={"frequency"}/>
+						<VictoryBar data={ this.state.aggregationByDays } x="x" y="y"/>
 						</VictoryStack>
 					</VictoryChart>
 				</div>
 			</div>
 		</div>
-	}
+	};
 }
 export default HomePage

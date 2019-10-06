@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 5000;
 
@@ -12,13 +13,21 @@ mongoose.connect('mongodb://localhost/hackthenorth2019', (err) => {
 	console.log("Connected to database")
 });
 
-/*routes for viewing data from the database*/
-app.get('/view/graphData/:userid', function (req, res) {
+/**
+ * @url/view/graphData/:userid
+ */
+const getGraphData = (req, res) => {
 	dbFunctions.getGraphData(req.params.userid, (error, graphData) => {
 		if (error) res.sendStatus(500);
 		res.send(graphData);
 	});
-});
+};
+
+/*routes for viewing data from the database*/
+app.get('/view/graphData/:userid',
+	cors(), // middleware to expose only this API endpoint to any browser making a cross-origin request
+	getGraphData
+);
 
 app.get('/view/achievementsData/:userid', function (req, res) {
 	res.send('achievements');
