@@ -22,29 +22,43 @@ const weekday = ["Su", "M", "Tu", "W", "Th", "F", "Sa"];
 class HomePage extends React.Component {
 	constructor(props) {
 		super(props);
-		// axios.get('http://localhost:5000/view/achievementsData/michael')
+		this.state = {
+			aggregationByDays: [ ]
+		};
+		// axios.get('http://localhost:5000/view/graphData/michael')
+		// 	.then(response => {
+		// 		response.data.forEach(value => {
+		// 			this.state.aggregationByDays.push({y: value})
+		// 		});
+		// 		this.state.aggregationByDays.forEach( (dayElement, dayIndex) => {
+		// 			dayElement.x = weekday[dayIndex];
+		// 		});
+		// 		debugger;
+		// 	})
+		// 	.catch( error => {
+		// 		console.log(error);
+		// 	});
+	};
+
+	componentDidMount() {
 		axios.get('http://localhost:5000/view/graphData/michael')
 			.then(response => {
-				console.log(response);
+				let daysArray = [];
+				response.data.forEach(value => {
+					daysArray.push({y: value})
+				});
+				daysArray.forEach( (dayElement, dayIndex) => {
+					dayElement.x = weekday[dayIndex];
+				});
+				this.setState({
+					aggregationByDays: daysArray
+				});
+				debugger;
 			})
 			.catch( error => {
 				console.log(error);
 			});
-		this.state = {
-			aggregateByDays: [
-				{frequency: 10},
-				{frequency: 20},
-				{frequency: 15},
-				{frequency: 30},
-				{frequency: 3},
-				{frequency: 50},
-				{frequency: 8}
-			]
-		};
-		this.state.aggregateByDays.forEach( (dayElement, dayIndex) => {
-			dayElement.day = weekday[dayIndex];
-		});
-};
+	};
 
 	render() {
 		return <div className="page">
@@ -73,11 +87,11 @@ class HomePage extends React.Component {
 						/>
 						<VictoryAxis
 							dependentAxis
-							tickFormat={x => x}
+							tickFormat={y => y}
 							label={"Times smoked"}
 						/>
 						<VictoryStack colorScale={["#967BB6"]} >
-						<VictoryBar data={this.state.aggregateByDays} x={"day"} y={"frequency"}/>
+						<VictoryBar data={ this.state.aggregationByDays } x="x" y="y"/>
 						</VictoryStack>
 					</VictoryChart>
 				</div>
