@@ -15,11 +15,8 @@ mongoose.connect('mongodb://localhost/hackthenorth2019', (err) => {
 /*routes for viewing data from the database*/
 app.get('/view/graphData/:userid', function (req, res) {
 	dbFunctions.getGraphData(req.params.userid, (error, graphData) => {
-		if (error) {
-			res.sendStatus(500);
-		} else {
-			res.send(graphData);
-		}
+		if (error) res.sendStatus(500);
+		res.send(graphData);
 	});
 });
 
