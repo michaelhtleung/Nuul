@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {VictoryChart, VictoryBar, VictoryAxis, VictoryTheme, VictoryStack} from 'victory';
+import {VictoryChart, VictoryBar, VictoryAxis, VictoryStack} from 'victory';
 
 /*custom components*/
 import Streak from './streak';
@@ -23,21 +23,12 @@ class HomePage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			aggregationByDays: [ ]
+			aggregateByDays: [
+				0, 0, 0,
+				0, 0, 0,
+				0
+			]
 		};
-		// axios.get('http://localhost:5000/view/graphData/michael')
-		// 	.then(response => {
-		// 		response.data.forEach(value => {
-		// 			this.state.aggregationByDays.push({y: value})
-		// 		});
-		// 		this.state.aggregationByDays.forEach( (dayElement, dayIndex) => {
-		// 			dayElement.x = weekday[dayIndex];
-		// 		});
-		// 		debugger;
-		// 	})
-		// 	.catch( error => {
-		// 		console.log(error);
-		// 	});
 	};
 
 	componentDidMount() {
@@ -51,9 +42,8 @@ class HomePage extends React.Component {
 					dayElement.x = weekday[dayIndex];
 				});
 				this.setState({
-					aggregationByDays: daysArray
+					aggregateByDays: daysArray
 				});
-				debugger;
 			})
 			.catch( error => {
 				console.log(error);
@@ -91,7 +81,7 @@ class HomePage extends React.Component {
 							label={"Times smoked"}
 						/>
 						<VictoryStack colorScale={["#967BB6"]} >
-						<VictoryBar data={ this.state.aggregationByDays } x="x" y="y"/>
+						<VictoryBar data={ this.state.aggregateByDays } x="x" y="y"/>
 						</VictoryStack>
 					</VictoryChart>
 				</div>
