@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
-const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const sensorSchema = new mongoose.Schema({
-	_id: ObjectId,
+	_id: String,
 	serialNumber: Number,
 	brand: String,
 	userID: String,

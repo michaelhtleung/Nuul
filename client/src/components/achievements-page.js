@@ -2,7 +2,7 @@ import React from 'react'
 class AchievementsPage extends React.Component {
 	render() {
 		return <div className="page">
-			<h1>{"Achievements".toUpperCase()}</h1>
+			<h1>{"Goals".toUpperCase()}</h1>
 		</div>
 	}
 }

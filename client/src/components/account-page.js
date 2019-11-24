@@ -17,7 +17,7 @@ class Achievements extends React.Component {
 
 	render() {
 		return <div className="page">
-			<h1>{"Accounts".toUpperCase()}</h1>
+			<h1>{"Users".toUpperCase()}</h1>
 			<FormControl component="fieldset">
 				<FormLabel component="legend"/>
 				<RadioGroup name="userID" onChange={reloadUserData}>
