@@ -6,7 +6,8 @@ const mongoose = require('mongoose');
  * Parameters:
  * _id: UUID of the session document
  * userID: UUID of the user smoking in the session
- * sensorID: UUID Of the sensor that collected data during the session
+ * sensorID: UUID of the sensor that collected data during the session
+ * location: Location tracked by PWA during the session.
  * startTime: Timestamp of when the session started
  * endTime: Timestamp of when the session ended. Should be exactly 30 minutes after the startTime.
  *
@@ -23,6 +24,7 @@ const sessionSchema = new mongoose.Schema({
 	_id: String,
 	userID: String,
 	sensorID: String,
+	location: String,
 	startTime: Date,
 	endTime: Date,
 	pressDown: [
