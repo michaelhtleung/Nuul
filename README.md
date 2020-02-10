@@ -1,4 +1,8 @@
 # How to run locally:
+Data Science
+- create a synthetic data with "python3 synthetic_data_generator.py"
+- train and score a decision tree classifier with "python3 model.py"
+
 Database
 - start the database "sudo service mongod start"
 - stop the database "sudo service mongod stop"

@@ -12,17 +12,17 @@ with open('high_schooler_file.csv', mode='w') as user_file:
             if day is 0:
                 data = {
                     'bin_num': [18, 24, 25, 32, 33],
-                    'chance': [0.8, 0.9, 0.8, 0.6, 0.5],
+                    'chance': [0.6, 0.7, 0.5, 0.6, 0.5],
                 }
             if day in [1, 2, 3, 4]:
                 data = {
                     'bin_num': [0, 24],
-                    'chance': [0.6, 0.9],
+                    'chance': [0.6, 0.7],
                 }
             if day is 5:
                 data = {
                     'bin_num': [0, 24, 44, 45, 46, 47],
-                    'chance': [0.6, 0.9, 0.6, 0.7, 0.8, 0.9],
+                    'chance': [0.6, 0.8, 0.6, 0.7, 0.7, 0.8],
                 }
             if day is 6:
                 data = {
@@ -30,8 +30,8 @@ with open('high_schooler_file.csv', mode='w') as user_file:
                                 4, 5, 24, 25,
                                 40, 41],
                     'chance': [0.6, 0.5, 0.4, 0.5,
-                               0.3, 0.3, 0.9, 0.8,
-                               0.9, 0.9],
+                               0.3, 0.3, 0.8, 0.7,
+                               0.6, 0.7],
                 }
 
             # add data for timeslots "bins" where user won't be smoking for sure
@@ -44,8 +44,23 @@ with open('high_schooler_file.csv', mode='w') as user_file:
             data["chance"] += clean_chance
 
             for i_data in range(len(data["bin_num"])):
+                # default
                 target = 0
+                bin_num = data["bin_num"][i_data]
+
                 result = r.uniform(0, 1)
                 if result < data["chance"][i_data]:
                     target = 1
-                user_writer.writerow([data["bin_num"][i_data], day, target])
+
+                # add noise
+                # technically, this should replace one of the clean bins, but i'm short on time so this will do
+                noise_result = r.uniform(0, 1)
+                noise_bin = r.uniform(0, 48)
+                noise_day = r.uniform(0, 7)
+                if noise_result < 0.1:
+                    target = 1
+                    bin_num = round(noise_bin)
+                    day = round(noise_day)
+
+                # write unit to csv population
+                user_writer.writerow([bin_num, day, target])

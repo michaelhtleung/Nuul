@@ -7,6 +7,8 @@ verify_ssl = true
 
 [packages]
 pymongo = "*"
+pandas = "*"
+sklearn-decisiontreeclassifier = "*"
 
 [requires]
 python_version = "3.6"
